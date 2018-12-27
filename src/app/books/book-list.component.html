@@ -1,0 +1,51 @@
+<div class='card'>
+    <div class='card-header'>
+        {{pageTitle}}
+    </div>
+</div>
+
+<div class='css'>
+  <div class="row">
+        <div class="column">
+                <div style="width:100%;height:400px;">
+                  <img src="../assets/images/home.jpg" class="image" id=1 [routerLink]="['/view', id]" style="float:left;width:50%;height:100%;">
+                </div>
+          <p>Title:Home book</p>
+          <button type="button" (click)="number_of_likes=number_of_likes+1" style="float: left">Like</button>
+          <label for=nooflikes >Total likes</label>
+          <input type="number" [value]="number_of_likes" >
+        </div>
+        <div class="column">
+                <div style="width:100%;height:400px;">
+                  <img src="../assets/images/homeland.jpg" class="image" style="float:left;width:50%;height:100%;">
+                </div>     
+          <p>Title:Homeland book</p>
+          <button type="button" (click)="number_of_likes1=number_of_likes1+1" style="float: left">Like</button>
+          <label for=nooflikes >Total likes</label>
+          <input type="number" [value]="number_of_likes1" >
+        </div>
+  </div>
+      
+  <div class="row">
+        <div class="column">
+                <div style="width:100%;height:400px;">
+                  <img src="../assets/images/lion.jpg" class="image" style="float:left;width:50%;height:100%;">
+                </div>
+          <p>Title:Lion book</p>
+          <button type="button" (click)="number_of_likes2=number_of_likes2+1" style="float: left">Like</button>
+          <label for=nooflikes >Total likes</label>
+          <input type="number" [value]="number_of_likes2" >
+        </div>
+        <div class="column">
+                <div style="width:100%;height:400px;">
+                  <img src="../assets/images/monkey.jpg"  class="image" style="float:left;width:50%;height:100%;">
+                </div>
+            <p>Title:Monkey book</p>
+            <button type="button" (click)="number_of_likes3=number_of_likes3+1" style="float: left">Like</button>
+            <label for=nooflikes >Total likes</label>
+            <input type="number" [value]="number_of_likes3" >
+        </div>
+  </div>
+</div>
+   
+   

@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `<div><h1>{{pageTitle}}</h1>
+  <router-outlet></router-outlet>
+  </div>
+  `
 })
 export class AppComponent {
-  title = 'books-app';
+  pageTitle: string ='Books page';
 }
