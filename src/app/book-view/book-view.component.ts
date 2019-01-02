@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-view',
@@ -9,7 +9,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class BookViewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {
-    
+    this.route.params.subscribe( params => console.log(params) );
+
    }
 
   ngOnInit() {
