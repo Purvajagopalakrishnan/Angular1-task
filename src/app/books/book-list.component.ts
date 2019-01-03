@@ -1,17 +1,29 @@
 import { Component } from "@angular/core";
 
+import { HeroService } from "../hero.service";
+import { IBook } from "../book";
+import { Router } from "@angular/router";
+
 @Component({
-    selector: 'app-books',
+    selector: 'app-book-list',
     templateUrl: './book-list.component.html',
-    styleUrls: ['./book-list.component.css']
+    styleUrls: ['./book-list.component.css'],
+   
 
 })
 export class BookListComponent{
     pageTitle: string ='Book List';
-    number_of_likes=0 ;
-    number_of_likes1=0;
-    number_of_likes2=0;
-    number_of_likes3=0;
-
+    books:IBook[];
    
+    constructor(private service: HeroService,
+        private router: Router) { }
+   
+   ngOnInit(){
+       this.books = this.service.getBooks();
+   }
+
+   onclick(read: IBook) {
+    this.router.navigate([`detail/${read.id}`]);
+   }
+    
 }

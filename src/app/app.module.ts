@@ -5,16 +5,19 @@ import { AppComponent } from './app.component';
 import { BookListComponent } from './books/book-list.component';
 import { BookViewComponent } from './book-view/book-view.component';
 import { RouterModule } from '@angular/router';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
-    BookViewComponent
+    BookViewComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

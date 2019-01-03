@@ -1,12 +1,9 @@
-import { RouterModule, Routes } from '@angular/router'; 
-import { BookViewComponent } from './book-view/book-view.component';
+import { RouterModule, Routes } from '@angular/router';
 import { BookListComponent } from './books/book-list.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 export const routes: Routes = [
-    { path: 'book-view/:id', component: BookViewComponent },
-    { path: 'view/:id', component: BookViewComponent },
-   // {path: 'search', component: BookViewComponent},
-  //  {path: 'search/:term', component: BookViewComponent},
-    { path: '', pathMatch: 'full', component:  BookListComponent }
+    {path: 'detail/:id', component: BookDetailComponent}, 
+    {path: '', pathMatch: 'full', component: BookListComponent}  
 ];
 	

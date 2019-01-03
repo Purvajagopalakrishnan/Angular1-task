@@ -1,19 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { IBook } from '../book';
 
 @Component({
   selector: 'app-book-view',
   templateUrl: './book-view.component.html',
+
   styleUrls: ['./book-view.component.css']
 })
-export class BookViewComponent implements OnInit {
+export class BookViewComponent {
 
-  constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe( params => console.log(params) );
-
-   }
-
-  ngOnInit() {
-  }
-
+  @Input() book: IBook;
+ 
+ 
 }

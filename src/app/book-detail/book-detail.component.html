@@ -1,0 +1,7 @@
+<div *ngIf="required_book">
+    <img src= {{required_book.imageUrl}}>
+    <p>Description: {{required_book.bookDescription}}</p> 
+  </div>
+<a [routerLink]="['/']">Back</a> |
+<a (click)= "onclick()">next</a>
+
