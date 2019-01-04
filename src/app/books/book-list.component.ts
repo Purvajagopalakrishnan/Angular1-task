@@ -18,8 +18,10 @@ export class BookListComponent{
     constructor(private service: HeroService,
         private router: Router) { }
    
-   ngOnInit(){
-       this.books = this.service.getBooks();
+   ngOnInit(): void{
+    this.service.getBooks().subscribe(
+        books => this.books = books
+      );
    }
 
    onclick(read: IBook) {

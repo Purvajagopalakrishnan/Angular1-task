@@ -10,6 +10,12 @@ import { IBook } from '../book';
 export class BookViewComponent {
 
   @Input() book: IBook;
+
  
- 
-}
+
+  constructor(){
+
+  }
+
+
+} 

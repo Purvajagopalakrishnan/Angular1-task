@@ -1,42 +1,32 @@
 import { Injectable } from '@angular/core';
 import { IBook } from './book';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import {catchError,tap} from 'rxjs/operators';
+import { TagPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
+    private bookUrl = 'assets/books.json';
 
-  constructor() { }
-  books: IBook[] = [
-    {
-        id: 1,
-        bookName: "Home",
-        imageUrl: "../assets/images/home.jpg",
-        bookDescription: "This book is all about two children"          
+  constructor(private http: HttpClient) { }
+  getBooks(): Observable<IBook[]> {
+      return this.http.get<IBook[]>(this.bookUrl).pipe(
+          tap(data => console.log('All: ' + JSON.stringify(data))),catchError(this.handleError)
+        );
+  }
+  private handleError(err: HttpErrorResponse){
+      let errorMessage = '';
+      if(err.error instanceof ErrorEvent){
+          errorMessage = `An error occured: $(err.error.message}`;
+      }else{
+          errorMessage = `server returned : $(err.status},error message is: ${err.message}`;
+      }
+      console.error(errorMessage);
+      return throwError(errorMessage);
 
-    },
-    {
-        id: 2,
-        bookName: "Homeland",
-        imageUrl: "../assets/images/homeland.jpg",
-        bookDescription: "This book is about homeland"          
-
-    },
-    {
-        id: 3,
-        bookName: "Lion",
-        imageUrl: "../assets/images/lion.jpg",
-        bookDescription: "This book is about lion's den" 
-    },
-    {
-        id: 4,
-        bookName: "smiley",
-        imageUrl: "../assets/images/smiley.jpg",
-        bookDescription: "This book is about smiley's world" 
-    }
-
-]
-  getBooks(){
-    return this.books;
   }
 }
